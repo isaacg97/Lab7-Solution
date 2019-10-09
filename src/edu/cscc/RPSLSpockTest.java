@@ -11,19 +11,25 @@ public class RPSLSpockTest {
 
     @Test
     public void testIsValidPick() {
+
+        //5 true statements
         Assert.assertTrue(RPSLSpock.isValidPick(RPSLSpock.ROCK));
         Assert.assertTrue(RPSLSpock.isValidPick(RPSLSpock.PAPER));
         Assert.assertTrue(RPSLSpock.isValidPick(RPSLSpock.SCISSORS));
         Assert.assertTrue(RPSLSpock.isValidPick(RPSLSpock.LIZARD));
         Assert.assertTrue(RPSLSpock.isValidPick(RPSLSpock.SPOCK));
 
+        //1 false statement
         Assert.assertFalse(RPSLSpock.isValidPick(null));
     }
 
     @Test
     public void testGeneratePick() {
+
+        //recursive method that tests if generatePick generates a valid method 1 million times
         for (int i = 0; i < 1000000; i++) {
             String h_pick = RPSLSpock.generatePick();
+            Assert.assertFalse(h_pick.equals(null));
             RPSLSpock.isValidPick(h_pick);
         }
     }
